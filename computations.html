@@ -10,9 +10,14 @@
 
 <body>
     <div id="root">
-        <h1>
-            {{ reversedMessage }}
-        </h1>
+        <h1>All Tasks</h1>
+        <ul>
+            <!--'v-if' is a conditional directive (super cool!!) in this 
+                instance it only displays tasks if they are completed"-->
+            <li v-for="task in tasks" v-if="task.completed" v-text="task.description">
+
+            </li>
+        </ul>
     </div>
 
     <script src='https://unpkg.com/vue@2.5.16/dist/vue.js'></script>
@@ -22,7 +27,12 @@
             el: '#root',
 
             data: {
-                message: "Hello World"
+                tasks: [
+                    { description: 'buy groceries', completed: true },
+                    { description: 'clean room', completed: false },
+                    { description: 'do laundry', completed: false },
+                    { description: 'pay rent', completed: true }
+                ]
             },
 
             computed: {
