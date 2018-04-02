@@ -10,20 +10,32 @@
 
 <body>
     <div id="root">
-        <!-- v-model is a Vue directive for form inputs that is getting bound to the message property-->
-        <input type="text" id="input" v-model="message">
-        <!-- can grab value with double brackets-->
-        <!-- this will automatically update as the value in the input changes! -->
-        <p>The message input is {{ message }}</p>
+        <ul>
+            <!-- another directive, defines what each instance in an array will be called-->
+            <!-- creates a list of each name in the array -->
+            <li v-for="name in names"> {{ name }} </li>
+        </ul>
+
+        <input id="input" type="text">
+        <button id="button">Add Name</button>
     </div>
     <script src='https://unpkg.com/vue@2.5.16/dist/vue.js'></script>
     <script>
-        //create vue instance, add data, bind it to an element
-        new Vue({
+
+        var app = new Vue({
             el: "#root",
             data: {
-                message: "Hello World"
+                names: ['Angela', 'Kaila', 'Marissa']
             }
+        })
+        //will add a new entry to the array of names once submitted. traditional way of doing things by reaching into the DOM.
+        document.querySelector('#button').addEventListener('click', () => {
+            let name = document.querySelector("#input")
+
+            app.names.push(name.value)
+
+            name.value = ""
+
         })
     </script>
 </body>
