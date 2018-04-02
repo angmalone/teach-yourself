@@ -1,23 +1,25 @@
-Vue.component("message", {
-  props: ["title", "body"],
+Vue.component("tabs", {
+  template: `
+  <div>
+  <div class="tabs">
+    <ul>
+      <li class="is-active"><a>Pictures</a></li>
+      <li><a>Music</a></li>
+      <li><a>Videos</a></li>
+      <li><a>Documents</a></li>
+    </ul>
+  </div>
+  
+  <div class="tabs-details>
+  <slot></slot>
+  </div>
+  </div>
+  `
+});
 
-  data() {
-    return {
-      isVisible: true
-    };
-  },
-  //v-show means it will show if it is true
-  template: `<article class="message" v-show="isVisible" >
-        <div class="message-header">
-            {{ title }}
-            <button type="button" @click="isVisible = false">x</button>
-        </div>
-
-        <div class="message-body">
-            {{ body }}
-        </div>
-    <article>
-    `
+Vue.component("tab", {
+  template: `
+    <div><slot></slot></div>`
 });
 
 new Vue({
