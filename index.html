@@ -18,7 +18,8 @@
 
         <input id="input" type="text" v-model="newName">
         <!-- v-on is a directive for event listeners in Vue-->
-        <button v-on:click="addName">Add Name</button>
+        <!--@click replaces v-on: in shorthand-->
+        <button @click="addName">Add Name</button>
     </div>
     <script src='https://unpkg.com/vue@2.5.16/dist/vue.js'></script>
     <script>

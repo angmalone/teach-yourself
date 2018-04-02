@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Binding Practice</title>
+</head>
+
+<body>
+    <div id="root">
+        <!--binding the title attribute to the data object title-->
+        <button v-bind:title="title">Hover over me</button>
+    </div>
+    <script src='https://unpkg.com/vue@2.5.16/dist/vue.js'></script>
+    <script>
+        var app = new Vue({
+
+            el: '#root',
+
+            data: {
+                title: 'the title is being set through javascript'
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
