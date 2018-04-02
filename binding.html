@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Binding Practice</title>
+    <style type="text/css">
+        .color-red {
+            color: red
+        }
+    </style>
 </head>
 
 <body>
     <div id="root">
-        <!--binding the title attribute to the data object title-->
-        <button v-bind:title="title">Hover over me</button>
+        <h1 :class="className">Hello World</h1>
     </div>
     <script src='https://unpkg.com/vue@2.5.16/dist/vue.js'></script>
     <script>
@@ -20,7 +24,7 @@
             el: '#root',
 
             data: {
-                title: 'the title is being set through javascript'
+                className: 'color-red'
             }
         })
 
