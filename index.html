@@ -16,8 +16,9 @@
             <li v-for="name in names"> {{ name }} </li>
         </ul>
 
-        <input id="input" type="text">
-        <button id="button">Add Name</button>
+        <input id="input" type="text" v-model="newName">
+        <!-- v-on is a directive for event listeners in Vue-->
+        <button v-on:click="addName">Add Name</button>
     </div>
     <script src='https://unpkg.com/vue@2.5.16/dist/vue.js'></script>
     <script>
@@ -25,18 +26,29 @@
         var app = new Vue({
             el: "#root",
             data: {
+                newName: "",
                 names: ['Angela', 'Kaila', 'Marissa']
-            }
+            },
+
+            methods: {
+                addName() {
+                    this.names.push(this.newName)
+                }
+            },
+
+            //mounted() {
+            //    //will add a new entry to the array of names once submitted. traditional way of doing things by reaching into the DOM.
+            //    document.querySelector('#button').addEventListener('click', () => {
+            //        let name = document.querySelector("#input")
+            //
+            //        app.names.push(name.value)
+            //
+            //        name.value = ""
+            //
+            //    })
+            //}
         })
-        //will add a new entry to the array of names once submitted. traditional way of doing things by reaching into the DOM.
-        document.querySelector('#button').addEventListener('click', () => {
-            let name = document.querySelector("#input")
 
-            app.names.push(name.value)
-
-            name.value = ""
-
-        })
     </script>
 </body>
 
