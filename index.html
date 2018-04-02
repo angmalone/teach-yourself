@@ -32,21 +32,11 @@
 
             methods: {
                 addName() {
-                    this.names.push(this.newName)
+                    this.names.push(this.newName);
+                    this.newName = ""
                 }
             },
 
-            //mounted() {
-            //    //will add a new entry to the array of names once submitted. traditional way of doing things by reaching into the DOM.
-            //    document.querySelector('#button').addEventListener('click', () => {
-            //        let name = document.querySelector("#input")
-            //
-            //        app.names.push(name.value)
-            //
-            //        name.value = ""
-            //
-            //    })
-            //}
         })
 
     </script>
