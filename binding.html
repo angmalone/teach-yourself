@@ -15,7 +15,10 @@
 
 <body>
     <div id="root">
-        <button :class="{ 'is-loading': true }">Click Me</button>
+        <!--setting the button to have a class of 'isLoading' which is false by default as defined under data. 
+            when the button is clicked, we're caling the toggleClass method which changes the 'isLoading' to true
+            which will change the background color to red-->
+        <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle Me</button>
     </div>
     <script src='https://unpkg.com/vue@2.5.16/dist/vue.js'></script>
     <script>
@@ -24,7 +27,13 @@
             el: '#root',
 
             data: {
-                className: 'color-red'
+                isLoading: false
+            },
+
+            methods: {
+                toggleClass() {
+                    this.isLoading = true
+                }
             }
         })
 
