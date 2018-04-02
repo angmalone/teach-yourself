@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Practice</title>
+</head>
+
+<body>
+    <div id="root">
+        <!-- v-model is a Vue directive for form inputs that is getting bound to the message property-->
+        <input type="text" id="input" v-model="message">
+        <!-- can grab value with double brackets-->
+        <!-- this will automatically update as the value in the input changes! -->
+        <p>The message input is {{ message }}</p>
+    </div>
+    <script src='https://unpkg.com/vue@2.5.16/dist/vue.js'></script>
+    <script>
+        //create vue instance, add data, bind it to an element
+        new Vue({
+            el: "#root",
+            data: {
+                message: "Hello World"
+            }
+        })
+    </script>
+</body>
+
+</html>
