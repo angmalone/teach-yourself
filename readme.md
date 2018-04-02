@@ -10,8 +10,12 @@
 
 * Similar to React, it allows you to automatically update elements so it eliminates the need for query selectors
 
-How does it solve the problem (conceptually)?
+**How does it solve the problem (conceptually)?**
+
+* Single source of truth?
+
 Why does one use it?
+
 What are the alternatives?
 What is it similar to, if anything?
 What is the history of this technology?
