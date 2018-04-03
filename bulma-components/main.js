@@ -1,27 +1,28 @@
-Vue.component("tabs", {
-  template: `
-  <div>
-  <div class="tabs">
-    <ul>
-      <li class="is-active"><a>Pictures</a></li>
-      <li><a>Music</a></li>
-      <li><a>Videos</a></li>
-      <li><a>Documents</a></li>
-    </ul>
-  </div>
-  
-  <div class="tabs-details>
-  <slot></slot>
-  </div>
-  </div>
-  `
-});
+Vue.component("message", {
+  props: ["title", "body"],
+-  template: `<article class="message">
++
++  data() {
++    return {
++      isVisible: true
++    };
++  },
++  template: `<article class="message" v-show="isVisible" >
+        <div class="message-header">
+            {{ title }}
++            <button type="button" @click="hideModal">x</button>
+        </div>
 
-Vue.component("tab", {
-  template: `
-    <div><slot></slot></div>`
-});
-
-new Vue({
-  el: "#root"
+        <div class="message-body">
+            {{ body }}
+        </div>
+    <article>
+-    `
++    `,
++
++  methods: {
++    hideModal() {
++      this.isVisible = false;
++    }
++  }
 });
